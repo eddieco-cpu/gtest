@@ -17,17 +17,17 @@
       <a class="nav_link nav_link-survey" href="./survey.html">survey</a>
     </nav>
     <hr />
+    <p>This video is about health</p>
     <section class="page_wrapper">
       <div id="ytplayer"></div>
     </section>
     <script>
-
       const page_wrapper = document.querySelector(".page_wrapper");
       const page_wrapper_width = parseInt(
         window.getComputedStyle(page_wrapper).width,
         10
-      ); 
-      const myWidth = Math.round(page_wrapper_width) - 10
+      );
+      const myWidth = Math.round(page_wrapper_width) - 10;
 
       // Load the IFrame Player API code asynchronously.
       var tag = document.createElement("script");
@@ -40,7 +40,8 @@
       var player;
       function onYouTubePlayerAPIReady() {
         player = new YT.Player("ytplayer", {
-          height: page_wrapper_width >= 660 ? "360" : Math.round(myWidth /16 *9),   
+          height:
+            page_wrapper_width >= 660 ? "360" : Math.round((myWidth / 16) * 9),
           width: page_wrapper_width >= 660 ? "640" : myWidth,
           videoId: "7wr15F82FQ8",
         });
