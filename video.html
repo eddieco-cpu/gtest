@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Video</title>
+  </head>
+  <body>
+    <h1>This is Video page</h1>
+    <nav>
+      <a class="nav_link nav_link-home" href="./index.html">home</a>
+      <a class="nav_link nav_link-about" href="./about.html">about</a>
+      <a class="nav_link nav_link-menu" href="./menu.html">menu</a>
+      <a class="nav_link nav_link-video" href="./video.html">video</a>
+      <a class="nav_link nav_link-survey" href="./survey.html">survey</a>
+    </nav>
+    <hr />
+    <section class="page_wrapper">
+      <div id="ytplayer"></div>
+    </section>
+    <script>
+
+      const page_wrapper = document.querySelector(".page_wrapper");
+      const page_wrapper_width = parseInt(
+        window.getComputedStyle(page_wrapper).width,
+        10
+      ); 
+      const myWidth = Math.round(page_wrapper_width) - 10
+
+      // Load the IFrame Player API code asynchronously.
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/player_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // Replace the 'ytplayer' element with an <iframe> and
+      // YouTube player after the API code downloads.
+      var player;
+      function onYouTubePlayerAPIReady() {
+        player = new YT.Player("ytplayer", {
+          height: page_wrapper_width >= 660 ? "360" : Math.round(myWidth /16 *9),   
+          width: page_wrapper_width >= 660 ? "640" : myWidth,
+          videoId: "7wr15F82FQ8",
+        });
+      }
+    </script>
+  </body>
+</html>

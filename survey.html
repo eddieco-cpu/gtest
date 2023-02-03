@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Survey</title>
+  </head>
+  <body>
+    <h1>This is Survey page</h1>
+    <nav>
+      <a class="nav_link nav_link-home" href="./index.html">home</a>
+      <a class="nav_link nav_link-about" href="./about.html">about</a>
+      <a class="nav_link nav_link-menu" href="./menu.html">menu</a>
+      <a class="nav_link nav_link-video" href="./video.html">video</a>
+      <a class="nav_link nav_link-survey" href="./survey.html">survey</a>
+  </nav>
+    <hr />
+
+    <h3>問卷調查 survey</h3>
+    <div class="qa">
+        <h3>您喜歡我們的網站嗎?</h3>
+        <p class="qa_iflikes">
+            <label for="like">
+                <input type="radio" id="like" name="feeling" value="like" class="qa_iflike iflike_like">
+                喜歡
+            </label>
+            <label for="nofeel">
+                <input type="radio" id="nofeel" name="feeling" value="nofeel" class="qa_iflike iflike_nofeel">
+                沒感覺
+            </label>
+            <label for="hate">
+                <input type="radio" id="hate" name="feeling" value="hate" class="qa_iflike iflike_hate">
+                討厭
+            </label>
+        </p>
+        <br>
+        <textarea name="why" id="" cols="30" rows="10" placeholder="說說原因?" class="qa_why"></textarea>
+        <br>
+        <br>
+        <span>我們怎麼稱呼你?</span><br>
+        <input type="text" name="visiter" class="qa_visiter">
+        <br>
+        <br>
+        <button class="qa_subimt">提交</button>
+    </div>
+    
+    <script>
+        const qa_block = document.querySelector('.qa')
+        const likeOpts = document.querySelectorAll('.qa_iflike')
+        const likeOptsArr = Array.prototype.slice.call(likeOpts)
+        const submit = document.querySelector('.qa_subimt')
+        let iflike
+
+        submit.addEventListener('click', () => {
+            
+            if(!likeOptsArr.find(el => el.checked === true)) return alert('請選擇喜歡的程度')
+            console.log(likeOptsArr.find(el => el.checked === true).value)
+            iflike = likeOptsArr.find(el => el.checked === true).value
+            
+            alert('收到了，很謝謝回覆!')
+            qa_block.classList.add('qa-none')
+        })
+
+    </script>
+  </body>
+</html>

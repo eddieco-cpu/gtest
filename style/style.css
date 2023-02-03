@@ -1,0 +1,186 @@
+body {
+    background-color: #ddd;
+}
+nav a {
+    text-decoration: none;
+    margin: 0 10px;
+}
+nav a:hover {
+    color: orange;
+}
+ul {
+    list-style: none;
+}
+li a {
+    text-decoration: none;
+    letter-spacing: 2px;
+    display: inline-block;
+}
+li a img {
+    height: 200px;
+}
+h4 {
+    margin-bottom: -10px;
+    font-size: 20px;
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+li:first-child a h4 {
+    margin-top: 0;
+}
+li a:hover h4 {
+    color: orange;
+}
+
+.img_arr img {
+    height: 200px;
+}
+.des {
+    width: 40%;
+}
+
+#cart_add {
+    position: fixed;
+    width: 60%;
+    height: 55vh;
+    margin: auto;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #666;
+    box-shadow: 0px 0px 10px 50vh rgba(1,1,1,0.5);
+    display: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+@media screen and (max-width: 767px) {
+    #cart_add { 
+        width: 80%;
+        height: 80vh;
+    }
+    .type {
+        margin-top: 40px;
+    }
+    .des {
+        width: 75%;
+    }
+    a.btn_turn-off {
+        font-size: 20px;
+        top: 5px;
+        right: 15px;
+    }
+}
+#cart_add:target {
+    display: block;
+}
+.btn_add-line {
+    text-align: center;
+}
+.btn_add {
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    outline: 1px solid darkslateblue;
+    text-decoration: none;
+    text-align: center;
+    line-height: 33px;
+    background-color: rgb(148, 134, 241);
+    color: white;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+    margin: 10px;
+}
+.btn_add:hover {
+    background-color: rgb(101, 81, 235);
+}
+.btn_add:active {
+    background-color: darkslateblue;
+}
+.btn_turn-off {
+    text-decoration: none;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 30px;
+    color: rgba(101, 81, 235, 0.5);
+}
+.btn_turn-off:hover {
+    color: orange;
+}
+
+.qa {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+    transition: height 0.4s ease, opacity 0.8s ease;
+}
+.qa-mask::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    background-image: linear-gradient(rgba(1, 1, 1, 0), rgba(255, 255, 255, 0.7) 20%, rgba(255, 255, 255, 0.7) 80%, rgba(1, 1, 1, 0));
+}
+.qa-none {
+    height: 0;
+    opacity: 0;
+    transition: height 0.4s ease, opacity 0.8s ease;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width:100%;
+    height:20px;
+    outline: none;      /* 避免點選會有藍線或虛線 */
+    background: none;
+    position: relative;
+    transform: translateX(-2px);
+    max-width: 480px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    box-shadow: 0 0 6px gray;
+    box-sizing: border-box;
+    border: 2px solid white;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    transition: background-color ease 0.2s;
+    background-color: rgb(101, 81, 235);
+    cursor: pointer;
+}
+input[type="range"]:hover::-webkit-slider-thumb {
+    background-color: rgb(184, 173, 255);
+}
+input[type="range"]:active::-webkit-slider-thumb {
+    background-color: orange;
+}
+
+input[type="range"]::after
+{
+  position: absolute;
+  display: block;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  content:"";
+  pointer-events: none;   /* 讓滑鼠可以點擊穿透偽元素，不然會點不到下面 */
+  transition:.2s;
+  background-color: #ccc;
+}
